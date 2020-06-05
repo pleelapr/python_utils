@@ -23,6 +23,12 @@ from sklearn.preprocessing import MinMaxScaler
 
 print(device_lib.list_local_devices())
 
+# Data Parameter
+n_steps = 365
+n_test = 30
+n_features = 1
+n_future_pred = 180
+
 # root mean squared error or rmse
 def measure_rmse(actual, predicted):
 	return sqrt(mean_squared_error(actual, predicted))
