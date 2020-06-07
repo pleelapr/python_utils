@@ -6,7 +6,7 @@ from datetime import date
 import numpy as np
 import time
 import auth.twitter_cred as tw_cred
-import setup_output
+import files_setup
 
 
 
@@ -50,8 +50,9 @@ d4 = today.strftime("%b-%d-%Y")
 #     # I also inserted the missing closing parenthesis
 #     df_i.to_csv("output/tweetsT"+d4+"N"+str(num_items)+"I"+str(id)+".csv", encoding='utf_8_sig')
 
-setup_output.setup()
-tweet_text.to_csv("output/tweetsT"+d4+"N"+str(num_items)+".csv", encoding='utf_8_sig')
+dir_loc = 'output'
+files_setup.setup_dir(dir_loc)
+tweet_text.to_csv(dir_loc+"/tweetsT"+d4+"N"+str(num_items)+".csv", encoding='utf_8_sig')
 
 end_time = time.time()
 local_end_time = time.ctime(end_time)
