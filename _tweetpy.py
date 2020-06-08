@@ -17,11 +17,12 @@ access_token_secret= tw_cred.ACCESS_TOKEN_SECRET
 
 auth = tw.AppAuthHandler(consumer_key, consumer_secret)
 # auth = tw.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+# auth.set_access_token(access_token, access_token_secret)
 api = tw.API(auth, wait_on_rate_limit_notify=True, wait_on_rate_limit=True)
 
 # Define the search term and the date_since date as variables
-search_words = "#ยกเลิก112"
+search_words = "#BlackLivesMatter"
+title = "blacklivesmatter"
 date_since = "2020-06-06"
 num_items = 50000
 # https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -52,7 +53,8 @@ d4 = today.strftime("%b-%d-%Y")
 
 dir_loc = 'output'
 files_setup.setup_dir(dir_loc)
-tweet_text.to_csv(dir_loc+"/tweetsT"+d4+"N"+str(num_items)+".csv", encoding='utf_8_sig')
+
+tweet_text.to_csv(dir_loc+"/tweets_"+title+"_T"+d4+"N"+str(num_items)+".csv", encoding='utf_8_sig', index=False)
 
 end_time = time.time()
 local_end_time = time.ctime(end_time)
